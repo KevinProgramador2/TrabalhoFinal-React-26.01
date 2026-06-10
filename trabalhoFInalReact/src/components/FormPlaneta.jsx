@@ -13,9 +13,7 @@ function FormPlaneta({
           className="modal-close"
           onClick={fecharModal}
           type="button"
-        >
-          X
-        </button>
+        ></button>
       </div>
 
       <label>
@@ -88,7 +86,11 @@ function FormPlaneta({
 
       <div className="form-actions">
         <button type="submit">Cadastrar</button>
-        <button className="button-secondary" onClick={fecharModal} type="button">
+        <button
+          className="button-secondary"
+          onClick={fecharModal}
+          type="button"
+        >
           Cancelar
         </button>
       </div>
