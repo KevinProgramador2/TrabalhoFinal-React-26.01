@@ -33,7 +33,7 @@ function Cadastro() {
       setMensagem("Cadastro realizado com sucesso.");
 
       setTimeout(() => {
-        navigate("/login");
+        navigate("/");
       }, 1200);
     } catch (error) {
       console.error("Erro ao cadastrar usuário:", error);
@@ -96,7 +96,7 @@ function Cadastro() {
           {carregando ? "Cadastrando..." : "Cadastrar"}
         </button>
 
-        <Link className="form-link" to="/login">
+        <Link className="form-link" to="/">
           Já tenho conta
         </Link>
       </form>
