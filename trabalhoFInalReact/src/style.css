@@ -1,8 +1,8 @@
 body {
   margin: 0;
   min-height: 100vh;
-  background: #eef2f6;
-  color: #1d2733;
+  background: var(--bg-page);
+  color: var(--text-body);
   font-family: Arial, sans-serif;
 }
 
@@ -313,4 +313,138 @@ button:disabled {
 
 .alien-card strong {
   color: #1d2733;
+}
+
+
+
+/*Barra Lateral nova - Rafael*/
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 56px;
+  background: #ffffff;
+  border-right: 1px solid #d9e1ea;
+  box-shadow: 2px 0 12px rgba(16, 32, 51, 0.08);
+  overflow: hidden;
+  transition: width 0.3s ease;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  padding-top: 16px;
+}
+
+.sidebar-aberta {
+  width: 200px;
+}
+
+.sidebar-icone {
+  font-size: 22px;
+  padding: 8px 16px;
+  color: #2176ff;
+  white-space: nowrap;
+}
+
+.sidebar-links {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 16px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.sidebar-aberta .sidebar-links {
+  opacity: 1;
+}
+
+.sidebar-links a,
+.sidebar-links .menu-button {
+  display: block;
+  padding: 10px 16px;
+  color: #2176ff;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 0;
+  background: transparent;
+  white-space: nowrap;
+  border: none;
+  text-align: left;
+  font-size: 15px;
+  width: 100%;
+}
+
+.sidebar-links a:hover,
+.sidebar-links .menu-button:hover {
+  background: #eef2f6;
+  color: #102033;
+}
+
+.app {
+  padding-left: 72px;
+}
+
+
+/*TEMA CLARO*/
+:root {
+  --bg-page:      #e8f0ff;
+  --bg-card:      #f0f4ff;
+  --bg-nav:       #1a1a3a;
+  --bg-input:     #ffffff;
+  --border:       #c2d0f0;
+  --border-input: #a8bcec;
+  --text-main:    #0d1b4b;
+  --text-body:    #2d3f6b;
+  --text-muted:   #4a5f8a;
+  --accent:       #5c35cc;
+  --accent-hover: #4526aa;
+  --accent-txt:   #ffffff;
+  --sidebar-hover:#dde6ff;
+}
+
+[data-theme="light"] .sidebar {
+  background: #1a1a3a;
+  border-right-color: #2a2a5a;
+}
+
+[data-theme="light"] .sidebar-links a,
+[data-theme="light"] .sidebar-links .menu-button {
+  color: #a0b4ff;
+}
+
+[data-theme="light"] .sidebar-links a:hover,
+[data-theme="light"] .sidebar-links .menu-button:hover {
+  background: #2a2a5a;
+  color: #ffffff;
+}
+
+[data-theme="light"] .sidebar-icone {
+  color: #a0b4ff;
+}
+/* TEMA ESCURO */
+[data-theme="dark"] {
+  --bg-page:      #000000;
+  --bg-card:      #ffffff;
+  --bg-nav:       #000000;
+  --bg-input:     #ffffff;
+  --border:       #333333;
+  --border-input: #cccccc;
+  --text-main:    #000000;
+  --text-body:    #000000;
+  --text-muted:   #333333;
+  --accent:       #2176ff;
+  --accent-hover: #185fd1;
+  --accent-txt:   #ffffff;
+  --sidebar-hover:#1a1a1a;
+}
+
+[data-theme="dark"] .app h1 {
+  color: #00d4ff;
+}
+
+[data-theme="dark"] .sidebar {
+  background: #000000;
+  border-right-color: #333333;
 }
