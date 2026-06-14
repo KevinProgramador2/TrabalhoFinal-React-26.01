@@ -16,7 +16,7 @@ function RotaPrivada({ children }) {
   }
 
   if (!estaAutenticado) {
-    return <Navigate to="/login" replace />;
+    return <Navigate to="/" replace />;
   }
 
   return children;
@@ -25,23 +25,30 @@ function RotaPrivada({ children }) {
 function AppRouter() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/login" element={<Login />} />
+      <Route path="/" element={<Login />} />
       <Route path="/cadastro" element={<Cadastro />} />
 
-
-      <Route 
-      path="/avistamentos" 
-      element={
-        <RotaPrivada>
-          <Avistamentos />  
-        </RotaPrivada>} />
-
+      <Route
+        path="/avistamentos"
+        element={
+          <RotaPrivada>
+            <Avistamentos />
+          </RotaPrivada>
+        }
+      />
       <Route
         path="/aliens"
         element={
           <RotaPrivada>
             <Aliens />
+          </RotaPrivada>
+        }
+      />
+      <Route
+        path="/home"
+        element={
+          <RotaPrivada>
+            <Home />
           </RotaPrivada>
         }
       />

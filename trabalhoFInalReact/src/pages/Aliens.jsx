@@ -7,6 +7,7 @@ const url = "/aliens";
 
 function Aliens() {
   const { nomeUsuario } = useAuth();
+  const [modeEdit, setModeEdit] = useState(false);
   const [aliens, setAliens] = useState([]);
   const [loading, setLoading] = useState(false);
   const [mensagem, setMensagem] = useState("");
@@ -46,7 +47,38 @@ function Aliens() {
     }
   }
 
+  async function deletarAlien(id) {
+    try {
+      setMensagem("");
+      await api.delete(`${url}/${id}`);
+      setAliens((listaAtual) => listaAtual.filter((alien) => alien.id !== id));
+      setMensagem("Alien excluído com sucesso!");
+    } catch (error) {
+      console.error("Erro ao excluir alien:", error);
+      setMensagem("Erro ao excluir alien.");
+    }
+  };
+
+  async function editarAlien(alien, id) {
+    setMensagem("");
+    setFormAlien(alien);
+    setModeEdit(true);
+    setModalAberto(true);
+    try {
+       const resposta = await api.get(`${url}/${id}`);
+    setAliens((listaAtual) => [...listaAtual, resposta.data]);
+    setMensagem('Alien editado com sucesso!')
+
+    } catch (error) {
+      console.log()("Erro ao buscar alien para edição:", error);
+      setMensagem("Erro ao buscar alien para edição.");
+    }
+   
+  }
+
+
   async function cadastrarAlien(event) {
+    setModeEdit(false);
     event.preventDefault();
     setMensagem("");
 
@@ -56,7 +88,7 @@ function Aliens() {
       limparFormulario();
       setModalAberto(false);
       setMensagem("Alien cadastrado com sucesso!");
-      
+
     } catch (error) {
       console.error("Erro ao cadastrar alien:", error);
       setMensagem("Erro ao cadastrar alien.");
@@ -67,6 +99,8 @@ function Aliens() {
     buscarAliensComAxios();
   }, []);
 
+
+  
   return (
     <section>
       <h1>Aliens</h1>
@@ -84,6 +118,7 @@ function Aliens() {
         <div className="modal-overlay">
           <div className="modal-content">
             <FormAlien
+              modeEdit={modeEdit}
               cadastrarAlien={cadastrarAlien}
               fecharModal={fecharModal}
               formAlien={formAlien}
@@ -95,7 +130,7 @@ function Aliens() {
 
 
       {mensagem && <p className="mensagem">{mensagem}</p>}
-{loading ? (
+      {loading ? (
         <p>Carregando aliens...</p>
       ) : (
         <div className="alien-list">
@@ -103,22 +138,29 @@ function Aliens() {
             <article className="alien-card" key={alien.id}>
               <h3>
                 {alien?.nome === "string" ? "Nome não disponível" : alien?.nome}
-            </h3>
-            <p>
-              <strong>Espécie:</strong> {alien?.especie}
-            </p>
-            <p>
-              <strong>Planeta:</strong> {alien?.planeta}
-            </p>
-            <p>
-              <strong>Periculosidade:</strong> {alien?.periculosidade}
-            </p>
-            <p>
-              <strong>Descrição:</strong> {alien?.descricao}
-            </p>
-          </article>
-        ))}
-      </div>)}
+              </h3>
+              <p>
+                <strong>Espécie:</strong> {alien?.especie}
+              </p>
+              <p>
+                <strong>Planeta:</strong> {alien?.planeta}
+              </p>
+              <p>
+                <strong>Periculosidade:</strong> {alien?.periculosidade}
+              </p>
+              <p>
+                <strong>Descrição:</strong> {alien?.descricao}
+              </p>
+              <div className="card-actions">
+                <button onClick={() => deletarAlien(alien.id)} className="button-excluir">Excluir</button>
+
+                
+                <button onClick={() => editarAlien(alien, alien.id)} className="button-secondary">Editar</button>
+              </div>
+
+            </article>
+          ))}
+        </div>)}
     </section>
   );
 }

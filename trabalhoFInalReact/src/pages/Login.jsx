@@ -28,7 +28,7 @@ function Login() {
     try {
       setCarregando(true);
       await login(formLogin);
-      navigate("/aliens");
+      navigate("/home");
     } catch (error) {
       console.error("Erro ao fazer login:", error);
       setMensagem("Email ou senha inválidos.");
