@@ -454,3 +454,64 @@ button:disabled {
 [data-theme="dark"] .alien-card strong {
   color: #ffffff;
 }
+[data-theme="dark"] .home {
+  background: var(--bg-card);
+  border-color: var(--border);
+}
+[data-theme="dark"] .home,
+[data-theme="dark"] .login-form,
+[data-theme="dark"] .modal-content {
+   background: #263366;
+  border-color: #112266;
+}
+
+
+
+.button-danger {
+  background: #e53935;
+  color: #ffffff;
+}
+
+.button-danger:hover {
+  background: #c62828;
+}
+
+.button-excluir {
+  background: #e53935 !important;
+  color: #ffffff !important;
+}
+
+.button-excluir:hover {
+  background: #c62828 !important;
+}
+
+.acoes-card button:last-child {
+  background: #e53935 !important;
+  color: #ffffff !important;
+}
+
+.acoes-card button:last-child:hover {
+  background: #c62828 !important;
+}
+
+.acoes-card button:first-child {
+  background: #e7edf4 !important;
+  color: #405063 !important;
+}
+
+.acoes-card button:first-child:hover {
+  background: #d5dfeb !important;
+  color: #102033 !important;
+}
+
+[data-theme="dark"] .home {
+  background: #0a0f2e;
+  border-color: #0a0f2e;
+}
+
+[data-theme="dark"] .home p {
+  color: #ffffff;
+}
+[data-theme="dark"] .login-form label {
+  color: #ffffff;
+}
