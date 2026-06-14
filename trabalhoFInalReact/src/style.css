@@ -279,10 +279,9 @@ button:disabled {
 
 .alien-card {
   padding: 16px;
-  border: 1px solid #d9e1ea;
+  border: 1px solid var(--border);
   border-radius: 8px;
-  background: #ffffff;
-  box-shadow: 0 6px 18px rgba(16, 32, 51, 0.06);
+  background: var(--bg-card);
 }
 
 .avistamento-list {
@@ -293,10 +292,9 @@ button:disabled {
 
 .avistamento-card {
   padding: 16px;
-  border: 1px solid #d9e1ea;
+  border: 1px solid var(--border);
   border-radius: 8px;
-  background: #ffffff;
-  box-shadow: 0 6px 18px rgba(16, 32, 51, 0.06);
+  background: var(--bg-card);
 }
 
 .alien-card h3 {
@@ -426,20 +424,19 @@ button:disabled {
 /* TEMA ESCURO */
 [data-theme="dark"] {
   --bg-page:      #000000;
-  --bg-card:      #ffffff;
+  --bg-card: #0d1b4b; 
   --bg-nav:       #000000;
-  --bg-input:     #ffffff;
+  --bg-input:     #111111;
   --border:       #333333;
-  --border-input: #cccccc;
-  --text-main:    #000000;
-  --text-body:    #000000;
-  --text-muted:   #333333;
-  --accent:       #2176ff;
-  --accent-hover: #185fd1;
-  --accent-txt:   #ffffff;
+  --border-input: #333333;
+  --text-main:    #ffffff;
+  --text-body:    #ffffff;
+  --text-muted:   #ffffff;
+  --accent:       #00d4ff;
+  --accent-hover: #00b8d9;
+  --accent-txt:   #000000;
   --sidebar-hover:#1a1a1a;
 }
-
 [data-theme="dark"] .app h1 {
   color: #00d4ff;
 }
@@ -447,4 +444,13 @@ button:disabled {
 [data-theme="dark"] .sidebar {
   background: #000000;
   border-right-color: #333333;
+}
+
+[data-theme="dark"] .alien-card h3 {
+  color: #00d4ff;
+}
+[data-theme="dark"] .alien-card p,
+
+[data-theme="dark"] .alien-card strong {
+  color: #ffffff;
 }
