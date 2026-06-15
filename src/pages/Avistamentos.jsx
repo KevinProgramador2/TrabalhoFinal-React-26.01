@@ -140,7 +140,10 @@ function Avistamentos() {
             <p>Nível do medo: {avistamento.nivelMedo}</p>
 
             {/* eu coloquei os botoes aqui em baixo  */}
-            <div className="acoes-card" style={{ marginTop: "10px" }}>
+            <div
+              className="acoes-card"
+              style={{ display: "flex", marginTop: "10px" }}
+            >
               <button
                 onClick={() => abrirEdicao(avistamento)}
                 style={{

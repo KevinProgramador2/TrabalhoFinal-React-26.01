@@ -29,7 +29,7 @@ function App() {
       >
         <div className="sidebar-icone">☰</div>
         <div className="sidebar-links">
-          <Link to="/">🏠 Home</Link>
+          <Link to="/">🔑Login</Link>
           {estaAutenticado && (
             <>
               <Link to="/aliens">👽 Aliens</Link>
@@ -43,7 +43,6 @@ function App() {
             </button>
           ) : (
             <>
-              <Link to="/login">🔑 Login</Link>
               <Link to="/cadastro">📝 Cadastro</Link>
             </>
           )}
