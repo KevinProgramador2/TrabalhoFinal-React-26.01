@@ -1,4 +1,4 @@
 [build]
-  base = "TrabalhoFinal-React-26.01"
+  base = "."
   command = "npm install && npm run build"
-  publish = "TrabalhoFinal-React-26.01/dist"
+  publish = "dist"
