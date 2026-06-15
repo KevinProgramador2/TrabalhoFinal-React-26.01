@@ -22,32 +22,26 @@ function App() {
 
   return (
     <main className="app">
-      <nav
-        className={`sidebar ${menuAberto ? "sidebar-aberta" : ""}`}
-        onMouseEnter={() => setMenuAberto(true)}
-        onMouseLeave={() => setMenuAberto(false)}
-      >
-        <div className="sidebar-icone">☰</div>
-        <div className="sidebar-links">
-          <Link to="/">🔑Login</Link>
-          {estaAutenticado && (
+      {estaAutenticado && (
+        <nav
+          className={`sidebar ${menuAberto ? "sidebar-aberta" : ""}`}
+          onMouseEnter={() => setMenuAberto(true)}
+          onMouseLeave={() => setMenuAberto(false)}
+        >
+          <div className="sidebar-icone">☰</div>
+          <div className="sidebar-links">
             <>
+              <Link to="/home">🏠 Home</Link>
               <Link to="/aliens">👽 Aliens</Link>
               <Link to="/planetas">🪐 Planetas</Link>
               <Link to="/avistamentos">🛸 Avistamentos</Link>
+              <button className="menu-button" type="button" onClick={sair}>
+                🚪 Sair
+              </button>
             </>
-          )}
-          {estaAutenticado ? (
-            <button className="menu-button" type="button" onClick={sair}>
-              🚪 Sair
-            </button>
-          ) : (
-            <>
-              <Link to="/cadastro">📝 Cadastro</Link>
-            </>
-          )}
-        </div>
-      </nav>
+          </div>
+        </nav>
+      )}
 
       <AppRouter />
 
