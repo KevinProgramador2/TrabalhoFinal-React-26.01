@@ -1,4 +1,6 @@
+Ini, TOM
+
 [build]
-  base    = "trabalhoFInalReact"
+  base    = "TrabalhoFinal-React-26.01"
   command = "npm install && npm run build"
   publish = "dist"
