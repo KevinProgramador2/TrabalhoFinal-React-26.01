@@ -17,6 +17,7 @@ function Planetas() {
     clima: "",
     habitavel: false,
     descricao: "",
+    imagem: "",
   });
 
   function limparFormulario() {
@@ -26,6 +27,7 @@ function Planetas() {
       clima: "",
       habitavel: false,
       descricao: "",
+      imagem: "",
     });
   }
 
@@ -100,6 +102,13 @@ function Planetas() {
         <div className="alien-list">
           {planetas.map((planeta) => (
             <article className="alien-card" key={planeta.id}>
+              {planeta.imagem && (
+                <img
+                  src={planeta.imagem}
+                  alt={planeta.nome}
+                  className="card-image"
+                />
+              )}
               <h3>
                 {planeta?.nome === "string"
                   ? "Nome não disponível"

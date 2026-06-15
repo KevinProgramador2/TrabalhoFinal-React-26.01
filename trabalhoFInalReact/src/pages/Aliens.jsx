@@ -18,6 +18,7 @@ function Aliens() {
     planeta: "",
     periculosidade: 1,
     descricao: "",
+    imagem: "",
   });
 
   function limparFormulario() {
@@ -27,6 +28,7 @@ function Aliens() {
       planeta: "",
       periculosidade: 1,
       descricao: "",
+      imagem: "",
     });
   }
 
@@ -136,6 +138,15 @@ function Aliens() {
         <div className="alien-list">
           {aliens.map((alien) => (
             <article className="alien-card" key={alien.id}>
+
+              {alien.imagem && (
+                <img
+                  src={alien.imagem}
+                  alt={alien.nome}
+                  className="card-image"
+                />
+              )}
+
               <h3>
                 {alien?.nome === "string" ? "Nome não disponível" : alien?.nome}
               </h3>

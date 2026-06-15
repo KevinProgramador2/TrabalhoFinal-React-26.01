@@ -84,6 +84,17 @@ function FormPlaneta({
         />
       </label>
 
+      <label>
+        URL da imagem
+        <input
+          type="text"
+          value={formPlaneta.imagem}
+          onChange={(event) =>
+            setFormPlaneta({ ...formPlaneta, imagem: event.target.value })
+          }
+        />
+      </label>
+
       <div className="form-actions">
         <button type="submit">Cadastrar</button>
         <button

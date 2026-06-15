@@ -87,6 +87,17 @@ function FormAlien({ modeEdit,cadastrarAlien, fecharModal, formAlien, setFormAli
         />
       </label>
 
+      <label>
+        URL da imagem
+        <input
+          type="text"
+          value={formAlien.imagem}
+          onChange={(event) =>
+            setFormAlien({ ...formAlien, imagem: event.target.value })
+          }
+        />
+      </label>
+
       <div className="form-actions">
         <button type="submit">{modeEdit ? "Editar" : "Cadastrar"} alien</button>
         <button className="button-secondary" onClick={fecharModal} type="button">
