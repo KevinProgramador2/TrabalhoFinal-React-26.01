@@ -1,8 +1,8 @@
 body {
   margin: 0;
   min-height: 100vh;
-  background: #eef2f6;
-  color: #1d2733;
+  background: var(--bg-page);
+  color: var(--text-body);
   font-family: Arial, sans-serif;
 }
 
@@ -279,10 +279,9 @@ button:disabled {
 
 .alien-card {
   padding: 16px;
-  border: 1px solid #d9e1ea;
+  border: 1px solid var(--border);
   border-radius: 8px;
-  background: #ffffff;
-  box-shadow: 0 6px 18px rgba(16, 32, 51, 0.06);
+  background: var(--bg-card);
 }
 
 .avistamento-list {
@@ -293,10 +292,9 @@ button:disabled {
 
 .avistamento-card {
   padding: 16px;
-  border: 1px solid #d9e1ea;
+  border: 1px solid var(--border);
   border-radius: 8px;
-  background: #ffffff;
-  box-shadow: 0 6px 18px rgba(16, 32, 51, 0.06);
+  background: var(--bg-card);
 }
 
 .alien-card h3 {
@@ -313,4 +311,207 @@ button:disabled {
 
 .alien-card strong {
   color: #1d2733;
+}
+
+
+
+/*Barra Lateral nova - Rafael*/
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 56px;
+  background: #ffffff;
+  border-right: 1px solid #d9e1ea;
+  box-shadow: 2px 0 12px rgba(16, 32, 51, 0.08);
+  overflow: hidden;
+  transition: width 0.3s ease;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  padding-top: 16px;
+}
+
+.sidebar-aberta {
+  width: 200px;
+}
+
+.sidebar-icone {
+  font-size: 22px;
+  padding: 8px 16px;
+  color: #2176ff;
+  white-space: nowrap;
+}
+
+.sidebar-links {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 16px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.sidebar-aberta .sidebar-links {
+  opacity: 1;
+}
+
+.sidebar-links a,
+.sidebar-links .menu-button {
+  display: block;
+  padding: 10px 16px;
+  color: #2176ff;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 0;
+  background: transparent;
+  white-space: nowrap;
+  border: none;
+  text-align: left;
+  font-size: 15px;
+  width: 100%;
+}
+
+.sidebar-links a:hover,
+.sidebar-links .menu-button:hover {
+  background: #eef2f6;
+  color: #102033;
+}
+
+.app {
+  padding-left: 72px;
+}
+
+
+/*TEMA CLARO*/
+:root {
+  --bg-page:      #e8f0ff;
+  --bg-card:      #f0f4ff;
+  --bg-nav:       #1a1a3a;
+  --bg-input:     #ffffff;
+  --border:       #c2d0f0;
+  --border-input: #a8bcec;
+  --text-main:    #0d1b4b;
+  --text-body:    #2d3f6b;
+  --text-muted:   #4a5f8a;
+  --accent:       #5c35cc;
+  --accent-hover: #4526aa;
+  --accent-txt:   #ffffff;
+  --sidebar-hover:#dde6ff;
+}
+
+[data-theme="light"] .sidebar {
+  background: #1a1a3a;
+  border-right-color: #2a2a5a;
+}
+
+[data-theme="light"] .sidebar-links a,
+[data-theme="light"] .sidebar-links .menu-button {
+  color: #a0b4ff;
+}
+
+[data-theme="light"] .sidebar-links a:hover,
+[data-theme="light"] .sidebar-links .menu-button:hover {
+  background: #2a2a5a;
+  color: #ffffff;
+}
+
+[data-theme="light"] .sidebar-icone {
+  color: #a0b4ff;
+}
+/* TEMA ESCURO */
+[data-theme="dark"] {
+  --bg-page:      #000000;
+  --bg-card: #0d1b4b; 
+  --bg-nav:       #000000;
+  --bg-input:     #111111;
+  --border:       #333333;
+  --border-input: #333333;
+  --text-main:    #ffffff;
+  --text-body:    #ffffff;
+  --text-muted:   #ffffff;
+  --accent:       #00d4ff;
+  --accent-hover: #00b8d9;
+  --accent-txt:   #000000;
+  --sidebar-hover:#1a1a1a;
+}
+[data-theme="dark"] .app h1 {
+  color: #00d4ff;
+}
+
+[data-theme="dark"] .sidebar {
+  background: #000000;
+  border-right-color: #333333;
+}
+
+[data-theme="dark"] .alien-card h3 {
+  color: #00d4ff;
+}
+[data-theme="dark"] .alien-card p,
+
+[data-theme="dark"] .alien-card strong {
+  color: #ffffff;
+}
+[data-theme="dark"] .home {
+  background: var(--bg-card);
+  border-color: var(--border);
+}
+[data-theme="dark"] .home,
+[data-theme="dark"] .login-form,
+[data-theme="dark"] .modal-content {
+   background: #263366;
+  border-color: #112266;
+}
+
+
+
+.button-danger {
+  background: #e53935;
+  color: #ffffff;
+}
+
+.button-danger:hover {
+  background: #c62828;
+}
+
+.button-excluir {
+  background: #e53935 !important;
+  color: #ffffff !important;
+}
+
+.button-excluir:hover {
+  background: #c62828 !important;
+}
+
+.acoes-card button:last-child {
+  background: #e53935 !important;
+  color: #ffffff !important;
+}
+
+.acoes-card button:last-child:hover {
+  background: #c62828 !important;
+}
+
+.acoes-card button:first-child {
+  background: #e7edf4 !important;
+  color: #405063 !important;
+}
+
+.acoes-card button:first-child:hover {
+  background: #d5dfeb !important;
+  color: #102033 !important;
+}
+
+[data-theme="dark"] .home {
+  background: #0a0f2e;
+  border-color: #0a0f2e;
+}
+
+[data-theme="dark"] .home p {
+  color: #ffffff;
+}
+[data-theme="dark"] .login-form label {
+  color: #ffffff;
 }
